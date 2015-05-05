@@ -1,0 +1,37 @@
+1  6// version NO. 1= version_of_cylindrical_system_3d_quadra; 5=number of unused lines
+# <<<<<<<<<<<<<< overall infomation created on 1/27/
+# HEX8 = 10; QUAD4 = 5;
+# number of layers (blocks); muscle and mucosal
+#  parameter layer by layer - i.e. block by block
+# n+1 layer's first nodes = n layer's last surface nodes
+# >>>>>>>>>>>>>>
+# header info; -- do not remove this line
+Esophagus // output file name; default in current directory
+3	// dimension number
+# block/layer info; -- do not remove this line
+5 	# number of layers (blocks); muscle and mucosal
+0 	# layer 1 : part 1: domain info;; part 2: mesh-size info
+0 	0			// cs type=0(r z theta), grid info: 0=grid num, 1=mesh size
+3	7 	0 	600	// domain size: r_inner, r_outer, z_lower, z_upper, 0, 2pi;
+1	 60	32		// grid info: nr, nz, ntheta;
+10	8			// patch type id; nodes number on each patch; 
+1 	# layer 1 : part 1: domain info;; part 2: mesh-size info
+0 	0			// cs type=0(r z theta), grid info: 0=grid num, 1=mesh size
+7	35 	0 	600	// domain size: r_inner, r_outer, z_lower, z_upper, 0, 2pi;
+4 	 60	32		// grid info: nr, nz, ntheta;
+10	8			// patch type id; nodes number on each patch; 
+2 	# layer 1 : part 1: domain info;; part 2: mesh-size info
+0 	0			// cs type=0(r z theta), grid info: 0=grid num, 1=mesh size
+35	41 	0 	600	// domain size: r_inner, r_outer, z_lower, z_upper, 0, 2pi;
+1 	60 	32		// grid info: nr, nz, ntheta;
+10	8
+3 	# layer 1 : part 1: domain info;; part 2: mesh-size info
+0 	0			// cs type=0(r z theta), grid info: 0=grid num, 1=mesh size
+41	47 	0 	600	// domain size: r_inner, r_outer, z_lower, z_upper, 0, 2pi;
+1 	60 	32		// grid info: nr, nz, ntheta;
+10	8
+4 	# layer 1 : part 1: domain info;; part 2: mesh-size info
+0 	0			// cs type=0(r z theta), grid info: 0=grid num, 1=mesh size
+47	53 	0 	600	// domain size: r_inner, r_outer, z_lower, z_upper, 0, 2pi;
+1 	60 	32		// grid info: nr, nz, ntheta;
+10	8

@@ -1,0 +1,31 @@
+2 5	# material.info created on 07/30/2014; f_cylindrical_system_3d_Hex8 (add bc_fcn_id);
+# format: fcn_id; para_num; para0, para1, para2, ...
+begin global_mesh 
+# *** Xda file for a single mesh;
+Esophagus.xda  # file name
+5 #number of domains
+0 5760 23040 28800 34560	#start_id;
+end global_mesh
+
+begin initial_geometry # one group parameters for each group
+# *** 8 parameters: ro eps, Amp,  L, StartL(distance2top), lamd1, lamd0, lamd2, unit:0.1mm;
+0 8 0 # fun_id(0) num_paras(8) havefile(0);
+3 3  10 1800 10 480 480  192
+	
+end initial_geometry
+
+begin boundary_info
+# *** currently, we only deal with dirichlet boundary of upper
+1 4 #//shape_id(1=tube); NO.BCs(surfaces) (4 for tube);
+1800 0  100 118  #//top, bot, r_inner, r_outer;
+0  2  0 3 0 0 0 #// bc_location, bc_type, bc_fcn_id, num_bc_paras, bc_para0, bc_para1,...;
+1  2  0 3 0 0 0 #// fa=f2=f3=0;
+2  2  20 3 100 0 0 #//p0 zmin zmax// pressure:
+3  1  10 3 0 0 0  #//f1 f2 f3 //
+end boundary_info
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+2  5// version NO. 1= version_of_cylindrical_system_3d_Hex8 (add bc_fcn_id);
+
+begin material
+// *** material information: 2 domains(materials)
+2  4 // number of domains=2; No. material parameter info
+0  0 6250/ subdomain info: subdomain_id; elem.beg_id; elem.end_id
+1  1  // fcn_id info: fcn_kee; fcx_stress;
+1 0 1 1 //material para info: C1, alpha1, C2, alpha2
+1 6251 125000/ subdomain info: subdomain_id; elem.beg; elem.end
+1  1  // fcn_id info: fcn_kee; fcx_stress;
+1 0 1 1 //material para info: C1, alpha1, C2, alpha2
+end material
+
+begin fiber
+// *** fiber information: we only consider 2 family fibers: see natali paper
+1 0   // have_fiber? =1 have_fiber_file?=0,
+no_fiber.info // have_fiber_file1=0,  see fiber.info
+2 5 // number of fiber types; parameter for each type; // we must group_num = subdomain_num
+0 1 0 0 0 //a0 a1 a2 c1 alpha1 //subdomain 1 // in r, t ,z orientation: circular: 0 1 0, axial 0 0 1;
+0 0 1 0 0 // 4 1 //b0 b1 b2 c2 alpha2 //subdomain 1 // helical in z-t place: theta, 0 0, 
+0 1 0 0 0 //400 1 //a0 a1 a2 c1 alpha1 //subdomain 2 // same logical; 
+0 0 1 0 0 //400 1 //b0 b1 b2 c2 alpha2 //subdomain 2
+end fiber
+
+begin other
+// *** other information for the internal variables (embeded in the element), needs file
+0  0// have other internal variables? =1 (true); num. of parameters (needed for registration before reading the actual info)
+other.info // see other.info
+end fiber
+
+
+begin boundary
+// *** boundary info: two integers: bc_location_id; bc_type_id(0: dirichlet; 1:traction; 2:pressure)
+1 4 //shape_id(1=tube); NO.BCs(surfaces) (4 for tube);
+5 0  0.5 1 //top, bot, r_inner, r_outer;
+0  0  0 3 0 0 0 // bc_location, bc_type, bc_fcn_id, num_bc_paras, bc_para0, bc_para1,...;
+1  0  0	3 0 0 0 // fa=f2=f3=0;
+2  2  20 3 1 0 0 //p0 zmin zmax// pressure:
+3  1  10 3 0 0 0  //f1 f2 f3 //
+end bundary
+
+
